@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'Atkinson';
+    src: url(./fonts/AtkinsonHyperlegibleNext-Regular.ttf);
+}
+@font-face {
+    font-family: 'LatoBlack';
+    src: url(./fonts/Lato-Black.ttf);
+}
+@font-face {
+    font-family: 'LatoLight';
+    src: url(./fonts/Lato-Light.ttf);
+}
+@font-face {
+    font-family: 'LatoThin';
+    src: url(./fonts/Lato-Thin.ttf);
+}
+
+.newsimg{
+    width: 400px;
+    height: 300px;
+}
+.newsCard{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(206, 206, 206);
+    border-radius: 15%;
+    margin: 15px 0px 15px 0px;
+}
+.newsTitle{
+    width: 350px;
+    font-family: 'LatoBlack';
+    font-size: 25px;
+    position: relative;
+    left:25%
+}
+.newsShortDescr{
+    
+    font-family: 'LatoLight';
+    font-size: 11px;
+    position: relative;
+    
+}
+.newsDate{
+    font-family: 'LatoThin';
+    font-size: 10px;
+    position: relative;
+    top: 75%;
+    left:65%
+}
+.categories{
+    display: none;
+    width: 100px;
+    position: absolute;
+    z-index: 10;
+}
+.categories button{
+    padding: 0px;
+    background-color: rgb(214, 214, 214);
+    border-color: rgb(197, 197, 197);
+    border-bottom-width:1px ;
+    border-top-width: 1px;
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+}
+.categories button:last-child{
+    padding: 0px;
+    background-color: rgb(214, 214, 214);
+    border-color: rgb(197, 197, 197);
+    border-bottom-width:2px ;
+    border-top-width: 1px;
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+    border-radius: 0px 0px 5px 5px;
+}
+.chosencategory{
+    padding: 0px;
+    background-color: rgb(214, 214, 214);
+    border-color: rgb(197, 197, 197);
+    border-bottom-width:1px ;
+    border-top-width: 2px;
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+    border-radius: 5px 5px 5px 5px;
+}
+.dropdown{
+    width: 100px;
+}
+.dropdown:hover .categories{
+    display: block;
+}
+.dropdown:hover .chosencategory{
+    padding: 0px;
+    background-color: rgb(214, 214, 214);
+    border-color: rgb(197, 197, 197);
+    border-bottom-width:1px ;
+    border-top-width: 2px;
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+    border-radius: 5px 5px 0px 0px;
+}
