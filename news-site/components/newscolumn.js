@@ -87,7 +87,7 @@ export default function Newscolumn({ newsposts, tags, categoryes }) {
                         
                     })
                     
-                return  <Newscard key={post.sys.id} title={post.fields.title} description={post.fields.body} date={post.fields.publishedDate} image={post.fields.image.fields.file.url}></Newscard>
+                return  <Newscard key={post.sys.id} title={post.fields.title} description={post.fields.short_description} date={post.fields.publishedDate} image={post.fields.image.fields.file.url} slug={post.fields.slug}></Newscard>
 })
 
             }

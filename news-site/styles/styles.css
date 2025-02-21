@@ -22,6 +22,10 @@ body{
     margin: 0px;
     box-sizing: border-box;
 }
+a{
+    all: unset;
+    text-decoration: none; /* no underline */
+  }
 
 .newsimg{
     width: 90%;
@@ -167,4 +171,36 @@ body{
     opacity: 0.5;
     position: relative;
     left:35%;
+}
+
+.slugimg{
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    
+    min-height:605px;
+    
+}
+.slugcont{
+    width:80vw;
+    margin-left: 10vw;
+    
+    
+}
+.short_description{
+    font-family: 'LatoThin';
+    font-size: 14px;
+    text-align: center;
+    
+}
+.mainnewstext_cont{
+    margin-top: 50px;
+}
+.mainnewstext{
+    font-size: 20px;
+}
+.newsSlugTitle{
+    font-family: 'LatoBlack';
+    font-size: 34px;
+    text-align: center;
 }
