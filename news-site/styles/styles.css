@@ -14,31 +14,49 @@
     font-family: 'LatoThin';
     src: url(./fonts/Lato-Thin.ttf);
 }
+* {
+    box-sizing: border-box 
+ }
+body{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
 
 .newsimg{
-    width: 400px;
+    width: 90%;
     height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position:relative;
+    left: 5%;
+    top:5%
 }
 .newsCard{
     width: 500px;
     height: 500px;
-    background-color: rgb(206, 206, 206);
-    border-radius: 15%;
+    background-color: rgb(236, 236, 236);
+    border-radius: 0;
     margin: 15px 0px 15px 0px;
+    box-shadow: 10px 8px rgba(128, 128, 128, 0.337);
+    border:1px solid black;
 }
 .newsTitle{
-    width: 350px;
+    max-width: 330px;
     font-family: 'LatoBlack';
     font-size: 25px;
     position: relative;
-    left:25%
+    left:15%;
+    top:30px;
 }
 .newsShortDescr{
     
     font-family: 'LatoLight';
     font-size: 11px;
     position: relative;
-    
+    left:5%;
+    top:35px;
+    max-width: 450px;
 }
 .newsDate{
     font-family: 'LatoThin';
@@ -109,4 +127,44 @@
     display: block;
     width: inherit;
     border-radius: 5px 5px 0px 0px;
+}
+.header{
+    width: 100vw;
+    height: 120px;
+    position: relative;
+    left:0px;
+    top:0px;
+    background-color: brown;
+}
+.headersearch{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-style: solid;
+    border-color: rgb(50, 50, 50);
+    position: relative;
+    border-radius: 25px;
+    width: 700px;
+    height: 42px;
+    left:calc(50vw - 350px);
+    top:35px;
+    font-family: 'LatoBlack';
+    font-size: 28px;
+    box-sizing: border-box;
+    padding: 0px 10px 0px 10px;
+}
+.headersearch:focus, input:focus{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(20, 20, 20);
+}
+.headersearch::placeholder{
+    color: rgba(31, 31, 31, 0.512);
+    opacity: 0.5;
+    position: relative;
+    left:35%;
 }

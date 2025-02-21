@@ -3,7 +3,7 @@
 import '../styles/styles.css'
 import { useState } from "react";
 
-export default function Filters({ tags, categoryes, setCatarray, catarray, swtFilterednews,filternewss, tagarray, setTagarray, filttags, setFilterbytag }) {
+export default function Filters({ tags, categoryes, setCatarray, catarray, swtFilterednews,filternewss, tagarray, setTagarray, filttags, setFilterbytag, searchres1 }) {
     const [tagnames, setTagnames] = useState(
         tags.map((taginfo)=>{
             return taginfo.fields.name
@@ -16,7 +16,8 @@ export default function Filters({ tags, categoryes, setCatarray, catarray, swtFi
     )
     const [currcat, setCurrcat] = useState('None')
     const [filteredcategs, setFilteredcategs] = useState([])
-    
+    const [currtag, setCurrtag] = useState([])
+    const [currcateg, setCurrcateg] = useState([])
     
     console.log(categorynames);
     console.log(tagnames)
@@ -32,7 +33,8 @@ export default function Filters({ tags, categoryes, setCatarray, catarray, swtFi
            const newcatarray = catarray;
            newcatarray.push(categname)
            console.log(newcatarray)
-           setCatarray(newcatarray) 
+           setCatarray(newcatarray)
+           setCurrcateg(newcatarray) 
         }
     }
     function filtertag(taggname){
@@ -46,15 +48,20 @@ export default function Filters({ tags, categoryes, setCatarray, catarray, swtFi
            const newtagarray = tagarray;
            newtagarray.push(taggname)
            console.log(newtagarray)
-           setTagarray(newtagarray) 
+           setTagarray(newtagarray)
+           setCurrtag(newtagarray)
         }
     }
 
     return (
         <div>
             <div>
-                <div></div>
-                <div></div>
+                <div>categoryes:{currcateg.map((categorname)=>(
+                    <span>{categorname+' '}</span>
+                ))}</div>
+                <div>tags:{currtag.map((tagname)=>(
+                    <span>{tagname+' '}</span>
+                ))}</div>
             </div>
             <div className="dropdown">
                 <button className='chosencategory'>{currcat}</button>
@@ -62,7 +69,7 @@ export default function Filters({ tags, categoryes, setCatarray, catarray, swtFi
                     {categorynames.map((categoryname, i)=>{
                          return <button key={i} onClick={()=>{
                             filtercategory(categoryname)
-                            swtFilterednews(filternewss())
+                            swtFilterednews(filternewss(searchres1))
                         }}>{categoryname} </button>
                     })}
                 </div>
@@ -71,7 +78,7 @@ export default function Filters({ tags, categoryes, setCatarray, catarray, swtFi
                 {tagnames.map((tagname, i)=>{
                      return <button key={i} onClick={()=>{
                         filtertag(tagname)
-                        swtFilterednews(filternewss())
+                        swtFilterednews(filternewss(searchres1))
                      }}>{tagname}</button>
                 })}
             </div>
