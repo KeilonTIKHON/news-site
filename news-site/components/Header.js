@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import '../styles/styles.css'
 import useDebounce from '@/hooks/Usedebounce';
+import Link from 'next/link';
 
 export default function Header({ swtFilterednews, filterednews, setSearchres, filternewss, newsposts }) {
     //const searchInput = document.querySelector(".headersearch")swtFilterednews
@@ -67,7 +68,12 @@ export default function Header({ swtFilterednews, filterednews, setSearchres, fi
 
                 }} value={searchtext}></input>
             </form>
-
+            
+            <div>
+            <Link href={`./profile/indexx`}>
+            LOG IN
+            </Link>
+            </div>
         </div>
     )
 }
