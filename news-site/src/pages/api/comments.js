@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     const space = await managementClient.getSpace(process.env.NEWS_SITE_SPACE_ID);
       const environment = await space.getEnvironment("master");
 
-        // 📦 GET: Получение всех комментариев для определенного поста
+       
         if (method === 'GET') {
             const { postId } = req.query;
 
