@@ -9,7 +9,7 @@ function base64UrlToBase64(base64Url) {
 }
 
 // Decode JWT and verify signature
-async function verifyJwt(token) {
+export async function verifyJwt(token) {
     const [headerB64, payloadB64, signatureB64] = token.split('.');
 
     const header = JSON.parse(atob(base64UrlToBase64(headerB64)));
