@@ -21,24 +21,27 @@ const RegisterForm = () => {
     return (
         <form onSubmit={handleRegister}>
             <input
+                className='rname'
                 type="text"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
             <input
+            className='remail'
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
             <input
+            className='rpassword'
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">Register</button>
+            <button className='registerpage_button' type="submit">Register</button>
         </form>
     );
 };

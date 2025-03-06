@@ -3,7 +3,7 @@ import { getContentByType } from "./lib/contentful";
 import Newscolumn from "../../components/newscolumn";
 
 export default function Home({ posts, tags, categoryes }) {
-  console.log(posts)
+  
   return (
     
       

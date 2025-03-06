@@ -14,25 +14,25 @@ export default function Filters({ tags, categoryes, setCatarray, catarray, swtFi
             return category.fields.name
          })
     )
-    const [currcat, setCurrcat] = useState('None')
+    const [currcat, setCurrcat] = useState('Categories')
     const [filteredcategs, setFilteredcategs] = useState([])
     const [currtag, setCurrtag] = useState([])
     const [currcateg, setCurrcateg] = useState([])
+    const [cat, setCat] = useState([])
+    const [tagg, settagg] = useState([])
     
-    console.log(categorynames);
-    console.log(tagnames)
+    
     function filtercategory(categname){
-        console.log(catarray)
-        console.log(categname + ' ppp')
+        
         if(catarray.includes(categname)){
             const newcatarray = catarray;
             newcatarray.splice((newcatarray.indexOf(categname)),1)
-            console.log(newcatarray)
+            
             setCatarray(newcatarray)
         }else{
            const newcatarray = catarray;
            newcatarray.push(categname)
-           console.log(newcatarray)
+           
            setCatarray(newcatarray)
            setCurrcateg(newcatarray) 
         }
@@ -42,44 +42,45 @@ export default function Filters({ tags, categoryes, setCatarray, catarray, swtFi
         if(tagarray.includes(taggname)){
             const newtagarray = tagarray;
             newtagarray.splice((newtagarray.indexOf(taggname)),1)
-            console.log(newtagarray)
+            
             setTagarray(newtagarray)
         }else{
            const newtagarray = tagarray;
            newtagarray.push(taggname)
-           console.log(newtagarray)
+           
            setTagarray(newtagarray)
            setCurrtag(newtagarray)
         }
     }
 
     return (
-        <div>
-            <div>
-                <div>categoryes:{currcateg.map((categorname)=>(
-                    <span>{categorname+' '}</span>
-                ))}</div>
-                <div>tags:{currtag.map((tagname)=>(
-                    <span>{tagname+' '}</span>
-                ))}</div>
-            </div>
+        <div className='filtercont'>
+            
             <div className="dropdown">
                 <button className='chosencategory'>{currcat}</button>
                 <div className="categories">
                     {categorynames.map((categoryname, i)=>{
-                         return <button key={i} onClick={()=>{
+                         return <button className={currcateg.includes(categoryname)?'categoryyes':'categoryno'} key={i} onClick={()=>{
+                            console.log(currcateg)
                             filtercategory(categoryname)
                             swtFilterednews(filternewss(searchres1))
+                            setCat(filternewss(searchres1))
                         }}>{categoryname} </button>
                     })}
                 </div>
             </div>
             <div className='tagbutscont'>
                 {tagnames.map((tagname, i)=>{
-                     return <button key={i} onClick={()=>{
+                     return <div key={i} className='butpos'>
+                        <button className={currtag.includes(tagname)?'active':'notactive'} key={i} onClick={()=>{
+                        console.log(tagname)
+                        console.log(currtag)
                         filtertag(tagname)
                         swtFilterednews(filternewss(searchres1))
+                        settagg(filternewss(searchres1))
                      }}>{tagname}</button>
+                     </div>
+                     
                 })}
             </div>
         </div>

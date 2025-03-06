@@ -7,10 +7,10 @@ export default function Newspagecount({postcount, postsperpage, setCurrentpage})
         
     }
     return(
-        <div>
+        <div className="pages">
             {
                 pagebuttons.map((pagenum,index)=>{
-                    return <button key={index} onClick={()=> setCurrentpage(pagenum)}>{pagenum}</button>
+                    return <button className="page_buttons" key={index} onClick={()=> setCurrentpage(pagenum)}>{pagenum}</button>
                 })
             }
         </div>
