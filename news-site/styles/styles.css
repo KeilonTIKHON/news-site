@@ -577,3 +577,74 @@ a{
 .registerpage_button:hover{
     background-color: rgb(206, 206, 206);
 }
+.comm_add_cont{
+    position: relative;
+    
+}
+.namecomm{
+    width:150px;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    left:0px;
+    top:50px;
+}
+.comm_text{
+    width:calc(50vw - 150px);
+    height: 40px;
+    border-radius: 10px;
+    position: relative;
+    left:0px;
+    top:40px;
+    max-width: 100%;
+}
+.commheader{
+    text-align: center;
+    font-family: 'LatoBlack';
+    font-size: 33px;
+    margin-top: 140px;
+}
+.sendcomm{
+    position: absolute;
+    left:0px;
+    bottom:-90px;
+    width: 140px;
+    height:40px;
+    font-family: 'LatoBlack';
+    border-radius: 5px;
+}
+.sendcomm:hover{
+    background-color: rgb(206, 206, 206);
+}
+.add_comm{
+    text-align: center;
+    font-family: 'LatoBlack';
+    font-size: 33px;
+    
+}
+.comment_cont{
+    position: relative;
+    background-color: rgb(236, 236, 236);
+    border-radius: 7px;
+}
+.username_comm{
+    margin-left: 60px;
+    font-family: 'LatoBlack';
+    font-size: 23px;
+    padding-top: 10px;
+}
+.user_comment_text{
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow: hidden;
+    max-width: 95%;
+    font-family: 'LatoLight';
+    font-size: 14px;
+}
+.comment_date{
+    position: relative;
+    left:calc(100% - 160px);
+    font-family: 'LatoThin';
+    font-size: 13px;
+    font-weight: 700;
+}

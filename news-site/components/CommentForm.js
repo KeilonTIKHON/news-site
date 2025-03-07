@@ -28,27 +28,28 @@ const CommentForm = ({ postId, onCommentAdded }) => {
   };
 
   return (
-    <div className="p-4 border rounded mt-6">
-      <h3 className="text-lg mb-2">Добавить комментарий</h3>
+    <div className="comm_add_cont">
+      <h3 className="add_comm">Add comment</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
+          
           type="text"
-          placeholder="Ваше имя"
+          placeholder="Your name"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          className="w-full p-2 border rounded"
+          className="namecomm"
           required
         />
         <textarea
-          placeholder="Комментарий"
+          placeholder="Comment text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="w-full p-2 border rounded"
+          className="comm_text"
           rows="4"
           required
         />
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">
-          Отправить
+        <button type="submit" className="sendcomm">
+          Send
         </button>
       </form>
       {message && <p className="mt-2 text-green-600">{message}</p>}

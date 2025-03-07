@@ -34,17 +34,17 @@ const NewsPost = ({ post, initialComments }) => {
             <CommentForm postId={post.sys.id} onCommentAdded={fetchComments} />
 
             <div className="mt-6">
-                <h2 className="text-xl mb-4">Комментарии:</h2>
+                <h2 className="commheader">Comments:</h2>
                 {comments.length > 0 ? (
                     comments.map((comment) => (
-                        <div key={comment.sys.id} className="p-4 border rounded mb-2">
-                            <p><strong>{comment.fields.author}</strong>:</p>
-                            <p>{comment.fields.commentText}</p>
-                            <small>{new Date(comment.fields.commDate).toLocaleString()}</small>
+                        <div key={comment.sys.id} className="comment_cont">
+                            <p className='username_comm'><strong>{comment.fields.author}</strong>:</p>
+                            <p className='user_comment_text'>{comment.fields.commentText}</p>
+                            <small className='comment_date'>{new Date(comment.fields.commDate).toLocaleString()}</small>
                         </div>
                     ))
                 ) : (
-                    <p>Пока нет комментариев.</p>
+                    <p>No comments yet.</p>
                 )}
             </div>
         </div>
