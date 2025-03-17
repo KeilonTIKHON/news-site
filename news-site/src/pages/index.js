@@ -1,0 +1,34 @@
+import { SessionProvider } from "next-auth/react";
+import { ApolloProvider } from "@apollo/client";
+import { getContentByType } from "./lib/contentful";
+import client from "./lib/apollo-client";
+import Newscolumn from "../../components/newscolumn";
+
+export default function Home({ posts, tags, categoryes }) {
+
+  return (
+
+    
+        <Newscolumn newsposts={posts} tags={tags} categoryes={categoryes}></Newscolumn>
+      
+
+
+
+
+
+  );
+
+}
+
+
+export async function getStaticProps() {
+  const posts = await getContentByType('news');
+  const tags = await getContentByType('tag');
+  const categoryes = await getContentByType('categoty');
+  console.log(posts)
+  return {
+    props: { posts, tags, categoryes },
+
+    revalidate: 3600, // Опционально: обновление раз в 3600 сек
+  };
+}

@@ -1,0 +1,650 @@
+@font-face {
+    font-family: 'Atkinson';
+    src: url(./fonts/AtkinsonHyperlegibleNext-Regular.ttf);
+}
+@font-face {
+    font-family: 'LatoBlack';
+    src: url(./fonts/Lato-Black.ttf);
+}
+@font-face {
+    font-family: 'LatoLight';
+    src: url(./fonts/Lato-Light.ttf);
+}
+@font-face {
+    font-family: 'LatoThin';
+    src: url(./fonts/Lato-Thin.ttf);
+}
+* {
+    box-sizing: border-box 
+ }
+body{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+a{
+    all: unset;
+    text-decoration: none; /* no underline */
+  }
+
+.newsimg{
+    width: 90%;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position:relative;
+    margin:5% 0% 0% 5%;
+}
+.newsCard{
+    width: 500px;
+    
+    background-color: rgb(236, 236, 236);
+    border-radius: 0;
+    margin: 15px 0px 15px 0px;
+    box-shadow: 10px 8px rgba(128, 128, 128, 0.337);
+    border:1px solid black;
+    flex-basis: 600px;
+    flex-grow: 0;
+    position: relative;
+}
+
+.newsTitle{
+   
+    font-family: 'LatoBlack';
+    font-size: 25px;
+    position: relative;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 20px 0px 20px 0px;
+    
+}
+.newsShortDescr{
+    
+    font-family: 'LatoLight';
+    font-size: 13px;
+    position: relative;
+    text-align: center;
+    margin: 20px 0px 35px 0px;
+    
+}
+.newsDate{
+    font-family: 'LatoThin';
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: black;
+    font-family: 'LatoBlack';
+    font-size: 12px;
+}
+.categories{
+    display: none;
+    width: inherit;
+
+    position: absolute;
+    z-index: 2;
+}
+.categories button{
+    padding: 0px;
+    height: 30px;
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+    flex-basis: 1%;
+    flex-grow: 1;
+    z-index: 1;
+    position: relative;
+}
+.categories button:last-child{
+    padding: 0px;
+   
+   
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+    
+}
+.chosencategory{
+    width: 100%;
+    padding: 0px;
+    height: 30px;
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+    border-width: 0px;
+    background-color: rgb(153, 41, 41);
+    color: rgb(217, 217, 217);
+}
+.dropdown{
+    width: 150px;
+   
+}
+.dropdown:hover{
+    min-width: 100px;
+}
+.dropdown:hover .categories{
+    display: block;
+    
+    transition: 3.5s;
+}
+.dropdown:hover .categories button{
+    width: inherit;
+    border-width: 0px;
+    flex-basis: 1%;
+    flex-grow: 1;
+    z-index: 2;
+}
+    
+
+.dropdown:hover .chosencategory{
+    padding: 0px;
+    
+    
+    border-image: none;
+    border-style:solid;
+    cursor: pointer;
+    display: block;
+    width: inherit;
+    
+}
+.header{
+    width: 100vw;
+    height: 120px;
+    position: fixed;
+    z-index: 4;
+    left:0px;
+    top:0px;
+    background-color: brown;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+.headerhide{
+    width: 100vw;
+    height: 120px;
+    position: fixed;
+    z-index: 4;
+    left:0px;
+    top:0px;
+    background-color: brown;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+.headersearch{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-style: solid;
+    border-color: rgb(50, 50, 50);
+    position: relative;
+    border-radius: 25px;
+    width: 40vw;
+    height: 42px;
+    left:30vw;
+    top:35px;
+    font-family: 'LatoBlack';
+    font-size: 22px;
+    box-sizing: border-box;
+    padding: 0px 00px 3px 30px;
+    
+}
+.headersearch:focus, input:focus{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(20, 20, 20);
+}
+.headersearch::placeholder{
+    color: rgba(31, 31, 31, 0.512);
+    opacity: 0.5;
+    position: relative;
+    width:200px;
+    left:calc(20vw - 100px)
+}
+
+.slugimg{
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    
+    min-height:605px;
+    
+}
+.slugcont{
+    width:80vw;
+    margin-left: 10vw;
+    margin-top: 140px;
+    
+    
+}
+.short_description{
+    font-family: 'LatoThin';
+    font-size: 14px;
+    text-align: center;
+    
+}
+.mainnewstext_cont{
+    margin-top: 50px;
+}
+.mainnewstext{
+    font-size: 20px;
+}
+.newsSlugTitle{
+    font-family: 'LatoBlack';
+    font-size: 34px;
+    text-align: center;
+}
+.newscardcont{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+.newscolumn{
+    margin-top: 120px;
+}
+.filtercont{
+    
+    background-color: rgb(207, 207, 207);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content:start;
+}
+.active{
+    border-color: rgb(0, 0, 0);
+    border-width: 0px;
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+}
+.active:hover{
+    background-color: rgb(219, 219, 219);
+}
+.active::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+.notactive{
+    border-color: white;
+    border-width: 0px;
+    width: 100%;
+    height: 30px;
+}
+.notactive:hover{
+    background-color: rgb(219, 219, 219);
+}
+.tagbutscont{
+    width:50vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:baseline;
+   flex-grow: 2;
+}
+.butpos{
+    position: relative;
+    flex-basis: 1%;
+    flex-grow: 1;
+    height: 30px;
+}
+.categoryyes{
+    font-weight: bold;
+}
+.categoryyes:hover{
+    background-color: rgb(209, 209, 209);
+}
+.categoryyes::after{
+    content: "";
+    width: 11px;
+    height: 11px;
+    background-color: red;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+}
+.categoryno:hover{
+    background-color: rgb(209, 209, 209);
+}
+
+.login_button{
+    position: absolute;
+    top: 80px;
+    right: 60px;
+    font-family: 'LatoLight';
+    font-weight: 500;
+    font-size: 16px;
+    color: aliceblue;
+    cursor: pointer;
+}
+.login_button:hover{
+    color: rgb(215, 220, 224);
+    transform: scale(0.99);
+    transition: 0.2s;
+}
+.profile_button{
+    height: 30px;
+    width: 100px;
+    position: absolute;
+    top: 40px;
+    right: 35px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 7px;
+    text-align:center;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0s;
+    font-family: 'LatoBlack';
+    font-size: 12px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+.profile_button:hover{
+    background-color: rgb(201, 201, 201);
+}
+.profile_button_text{
+    text-align:center;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0s;
+    font-family: 'LatoBlack';
+    font-size: 12px;
+}
+.underheader{
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width:100%;
+    height: 120px;
+    background-color: rgb(201, 201, 201);
+}
+.LOgo{
+    font-family: 'LatoBlack';
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    left:30px;
+    top:20px;
+    cursor: pointer;
+}
+.pages{
+    display: flex;
+    justify-content:center;
+    width: 300px;
+    flex-wrap: wrap;
+    position: relative;
+    left:calc(50vw - 150px);
+}
+.page_buttons{
+    width: 40px;
+    height: 40px;
+    margin:5px;
+    border-radius: 9px;
+    border-width: 1px;
+}
+.profilecont{
+    width: 75vw;
+    position: relative;
+    top:5vh;
+    left: 12.5vw;
+    background-color: rgb(222, 222, 222);
+    min-height: 75vh;
+    border-radius: 25px;
+    margin-top:130px;
+}
+.profile_h{
+    text-align: center;
+    font-family: 'LatoBlack';
+    font-weight: bolder;
+    font-size: 75px;
+    margin: 0xp;
+    margin-block: 0px;
+    
+}
+.infocont{
+    width: 71vw;
+    position: relative;
+    top:0vh;
+    left: 2vw;
+    background-color: rgb(255, 255, 255);
+    min-height: 58vh;
+    border-radius: 15px;
+}
+.formmax{
+    max-width: 90vw;
+}
+.textuser{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    position: relative;
+    margin-block: 0px;
+    left: 10%;
+    top:30px;
+}
+.textuser1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    position: relative;
+    margin-block: 0px;
+    left: 10%;
+    top:80px;
+}
+.edit_button{
+    position: absolute;
+    right: 20px;
+    bottom:20px;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+}
+.searchicon{
+    position: absolute;
+    left:calc(30vw + 10px);
+    top:48px;
+}
+.logincont{
+    width: 600px;
+    height: 400px;
+    background-color: brown;
+    position: relative;
+    left:calc(50vw - 300px);
+    top:200px;
+    border-radius: 40px;
+}
+.logstuff{
+    width:400px;
+    height: 250px;
+    position: relative;
+    left:100px;
+    top:50px;
+}
+.login_head{
+    text-align: center;
+    font-family: 'LatoBlack';
+    font-size: 50px;
+    margin-block: 0px;
+    color: white;
+    position: relative;
+}
+.email{
+    position: relative;
+    border-radius: 5px;
+    width:350px;
+    height: 30px;
+    top:20px;
+}
+.password{
+    position: relative;
+    border-radius: 5px;
+    width:350px;
+    height: 30px;
+    top:50px;
+}
+.loginpage_button{
+    position: absolute;
+    color: black;
+    right: 40px;
+    bottom: 0px;
+    width: 90px;
+    height: 30px;
+    border-radius: 8px;
+}
+.loginpage_button:hover{
+    background-color: rgb(206, 206, 206);
+}
+.reglink{
+    position: relative;
+    top:105px;
+    font-family: 'LatoLight';
+    color:white;
+    font-weight: 600;
+    cursor: pointer;
+    width: 150px;
+}
+.reglink:hover{
+    color: rgb(206, 206, 206);
+}
+.changename{
+    
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    position: relative;
+    margin-block: 0px;
+    left: 10%;
+    top:30px;
+}
+.changeEmail{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    position: absolute;
+    margin-block: 0px;
+    left: 10%;
+    top:110px;
+}
+.confirm_changes{
+    position: absolute;
+    left: calc(10% + 70px);
+    top:220px;
+    height: 30px;
+    border-radius: 4px;
+}
+.rname{
+    position: relative;
+    border-radius: 5px;
+    width:350px;
+    height: 30px;
+    top:20px;
+}
+.remail{
+    position: relative;
+    border-radius: 5px;
+    width:350px;
+    height: 30px;
+    top:50px;
+}
+.rpassword{
+    position: relative;
+    border-radius: 5px;
+    width:350px;
+    height: 30px;
+    top:80px;
+}
+.registerpage_button{
+    position: absolute;
+    color: black;
+    right: 40px;
+    bottom: -30px;
+    width: 90px;
+    height: 30px;
+    border-radius: 8px;
+}
+.registerpage_button:hover{
+    background-color: rgb(206, 206, 206);
+}
+.comm_add_cont{
+    position: relative;
+    
+}
+.namecomm{
+    width:150px;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    left:0px;
+    top:50px;
+}
+.comm_text{
+    width:calc(50vw - 150px);
+    height: 40px;
+    border-radius: 10px;
+    position: relative;
+    left:0px;
+    top:40px;
+    max-width: 100%;
+}
+.commheader{
+    text-align: center;
+    font-family: 'LatoBlack';
+    font-size: 33px;
+    margin-top: 140px;
+}
+.sendcomm{
+    position: absolute;
+    left:0px;
+    bottom:-90px;
+    width: 140px;
+    height:40px;
+    font-family: 'LatoBlack';
+    border-radius: 5px;
+}
+.sendcomm:hover{
+    background-color: rgb(206, 206, 206);
+}
+.add_comm{
+    text-align: center;
+    font-family: 'LatoBlack';
+    font-size: 33px;
+    
+}
+.comment_cont{
+    position: relative;
+    background-color: rgb(236, 236, 236);
+    border-radius: 7px;
+}
+.username_comm{
+    margin-left: 60px;
+    font-family: 'LatoBlack';
+    font-size: 23px;
+    padding-top: 10px;
+}
+.user_comment_text{
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow: hidden;
+    max-width: 95%;
+    font-family: 'LatoLight';
+    font-size: 14px;
+}
+.comment_date{
+    position: relative;
+    left:calc(100% - 160px);
+    font-family: 'LatoThin';
+    font-size: 13px;
+    font-weight: 700;
+}
