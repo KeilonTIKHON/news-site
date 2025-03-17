@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import '../../../styles/styles.css'
 import Header from '../../../components/Header';
 
@@ -10,19 +11,20 @@ const ProfilePage = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const router = useRouter();
+    const { data: session, status } = useSession();
 
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const { data } = await axios.get('/api/profile');
+                //const { data } = await axios.get('/api/users');
 
-                setUser(data.user);
-                setName(data.user.name['en-US'])
-                setEmail(data.user.email)
-                console.log(data.user)
+                setUser(session);
+                setName(session.user.name)
+                setEmail(session.user.email)
+                
             } catch (error) {
                 console.error('Profile Fetch Error:', error.message);
-                router.push('/news/login'); // 
+                router.push('/auth/login'); // 
             }
         };
 
@@ -80,8 +82,8 @@ const ProfilePage = () => {
                     <div>
                         <h1 className='profile_h'>Profile</h1>
                         <div className='infocont'>
-                            <p className='textuser'>Name: {user.name['en-US']}</p>
-                            <p className='textuser1'>Email: {user.email}</p>
+                            <p className='textuser'>Name: {name}</p>
+                            <p className='textuser1'>Email: {email}</p>
                             <button className='edit_button' onClick={() => { setIsChanging(isChanging => !isChanging) }}>Edit</button>
                         </div>
 

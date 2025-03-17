@@ -2,6 +2,7 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 import '../styles/styles.css'
 import useDebounce from '@/hooks/Usedebounce';
@@ -16,6 +17,7 @@ export default function Header({ swtFilterednews, filterednews, setSearchres, fi
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [timeout, settimeout] = useState()
+    const { data: session, status } = useSession();
     const scrollThreshold = 50; // Minimum scroll distance to trigger re-render
     const debounceDelay = 40; // Debounce delay in milliseconds
     let debounceTimer;
@@ -24,11 +26,11 @@ export default function Header({ swtFilterednews, filterednews, setSearchres, fi
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const res = await fetch(`/api/profile`);
-                const data = await res.json();
+                //const res = await fetch(`/api/profile`);
+                //const data = await res.json();
 
 
-                setName(data.user.name['en-US'])
+                //setName(data.user.name['en-US'])
 
 
             } catch (error) {
@@ -82,6 +84,7 @@ export default function Header({ swtFilterednews, filterednews, setSearchres, fi
 
     let smtt;
     let searchdebounce
+    
     useEffect(
         () => {
 
@@ -126,6 +129,7 @@ export default function Header({ swtFilterednews, filterednews, setSearchres, fi
         }
 
     }
+    console.log(session)
     return (
     
         <div className={showHeader ? "header" : "headerhide"}>
@@ -154,7 +158,7 @@ export default function Header({ swtFilterednews, filterednews, setSearchres, fi
             {router.pathname !== '/profile/indexx' ? <div className='profile_button'>
                 <Link href={`/profile/indexx`} >
                     <div className='profile_button_text'>
-                        {name ? name : 'Guest'}
+                        {session ? session.user.name : 'Guest'}
                     </div>
 
 
@@ -162,7 +166,7 @@ export default function Header({ swtFilterednews, filterednews, setSearchres, fi
 
             </div> : ''}
             <div className='login_button'>
-                <Link href={`/news/login`} >
+                <Link href={`/auth/login`} >
                     LOG IN
                 </Link>
             </div>

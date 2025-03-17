@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getToken } from "next-auth/jwt";
 
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET);
 
@@ -39,20 +40,13 @@ export async function verifyJwt(token) {
 }
 
 export async function middleware(req) {
-    const token = req.cookies.get('token')?.value;
-    
+    const token = await getToken({ req, secret: process.env.JWT_SECRET });
+  
     if (!token) {
-        return NextResponse.redirect(new URL('/news/login', req.url));
+      return NextResponse.redirect(new URL('/auth/login', req.url));
     }
-
-    try {
-        const smth = await verifyJwt(token);
-        return NextResponse.next();
-    } catch (error) {
-        console.error('JWT Verification Error:', error.message);
-        return NextResponse.redirect(new URL('/news/login', req.url));
-    }
-}
+    return NextResponse.next();
+  }
 
 export const config = {
     matcher: ['/profile/:path*', '/dashboard/:path*'],

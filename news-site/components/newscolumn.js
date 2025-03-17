@@ -66,7 +66,11 @@ export default function Newscolumn({ newsposts, tags, categoryes }) {
         })
         return smth2
     }
-
+    const fetchUsers = async () => {
+      const response = await fetch('/api/users');
+      const data = await response.json();
+      console.log(data)
+    }
     const lastpostindex = currentpage * postsPerPage;
     const firstpostindex = lastpostindex - postsPerPage;
     const newspostspage = filterednews.slice(firstpostindex, lastpostindex)
@@ -80,6 +84,7 @@ export default function Newscolumn({ newsposts, tags, categoryes }) {
             <Header newsposts={newsposts} swtFilterednews={swtFilterednews} filterednews={filterednews} filternewss={filternewss}></Header>
             <div className="underheader"></div>
             <div className="newscolumn">
+            <div onClick={()=>{fetchUsers()}}>fetch CHEL</div>
                 <Filters tags={tags} categoryes={categoryes} setCatarray={setCatarray} catarray={catarray} swtFilterednews={swtFilterednews} filternewss={filternewss} tagarray={tagarray} setTagarray={setTagarray} filttags={filttags} setFilterbytag={setFilterbytag} searchres1={searchres1}></Filters>
                 <div className="newscardcont">
                     {

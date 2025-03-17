@@ -1,5 +1,5 @@
 'use client';
-
+import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -10,14 +10,13 @@ const LoginForm = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('/api/login', { email, password });
-            console.log(response.data)
-            alert(response.data.message);
-        } catch (error) {
-            alert(error.response?.data?.message || 'Login failed');
+        const result = await signIn('credentials', { email, password, redirect: false });
+        if (result.error) {
+          alert(result.error);
+        } else {
+          alert("Login successful!");
         }
-    };
+      };
 
     return (
         <form onSubmit={handleLogin}>

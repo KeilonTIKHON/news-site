@@ -10,12 +10,24 @@ const RegisterForm = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('/api/register', { name, email, password });
-            alert(response.data.message);
-        } catch (error) {
-            alert(error.response?.data?.message || 'Registration failed');
+        const response = await fetch('/api/graphql', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            query: `
+              mutation {
+                register(name: "${name}", email: "${email}", password: "${password}")
+              }
+            `,
+          }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+          alert(data.errors[0].message);
+        } else {
+          alert("User registered successfully!");
         }
+      
     };
 
     return (

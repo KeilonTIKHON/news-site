@@ -10,8 +10,9 @@ export default async function handler(req, res) {
     if (req.method !== 'GET' && req.method !== 'PUT') {
         return res.status(405).json({ message: 'Method not allowed' });
     }
-
+    console.log(req)
     const token = req.cookies.token;
+    console.log(token)
     if (!token) {
         return res.status(401).json({ message: 'Not authenticated' });
     }
